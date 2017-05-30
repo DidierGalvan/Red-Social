@@ -33,19 +33,28 @@ class Libreria:
                 img = Image.open(ruta1[i])
                 plt.imshow(img)
                 plt.show()
-                etiqueta= raw_input("Etiqueta")
+                etiquetas= raw_input("Etiqueta: ")
+                etiqueta = etiquetas.split(',')
                 self.Libro[i].Etiqueta = etiqueta
             except AttributeError:
                 print "Eso no es imagen"
             except IOError:
                 print "Eso no es imagen"
     def AsignarGenero(self):
-        for i in range(len(Libro)):
-            a = Libro[i]
-            for j in range(len(self.Generos.keys())):
-                if a.Etiqueta == self.Generos.keys()[j]:
-                    self.Generos[i].append(a)
-                    a.Genero = keys()[j]
+            tamano = self.size()
+        for i in range(tamano):
+            a = self[i]
+            if len(a.Etiqueta()) == 1:
+                for j in range(len(self.Generos.keys())):
+                    if a.Etiqueta == self.Generos.keys()[j]:
+                        self.Generos[i].append(a)
+                        a.Genero = keys()[j]
+            else:
+                for i in a.Etiqueta:
+                    if a.Etiqueta == self.Generos.keys()[j]:
+                        self.Generos[i].append(a)
+                        a.Genero = keys()[j]
+
     def ElemenetosPorGenero(self,Genero):
             print len(Generos[Genero].values())
     def buscar(self,go_id,stop_id):
