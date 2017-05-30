@@ -11,4 +11,7 @@ def trabaja(A):
                 Prueba.AgregarImagen(ruta,nombre)
 
 trabaja(A)
-print Prueba.show(),"final"
+print Prueba.size(),"final"
+print Prueba.show()
+Prueba.AsignarEtiqueta()
+print Prueba.show()
