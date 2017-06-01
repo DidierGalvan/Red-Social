@@ -15,3 +15,7 @@ print Prueba.size(),"final"
 print Prueba.show()
 Prueba.AsignarEtiqueta()
 print Prueba.show()
+#Prueba.etiqueta()
+Prueba.AsignarGenero()
+print Prueba.show()
+print Prueba.Generos

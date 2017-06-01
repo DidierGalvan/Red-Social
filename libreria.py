@@ -15,6 +15,8 @@ class Libreria:
     def show(self):
         for imagen in self.Libro:
             print imagen.show()
+    def getGeneros(self):
+        return self.Generos
     def AgregarImagen(self,nombre,ruta):
         print self.size()
         self.Libro.append(Imagen(nombre,ruta))
@@ -41,19 +43,17 @@ class Libreria:
             except IOError:
                 print "Eso no es imagen"
     def AsignarGenero(self):
-            tamano = self.size()
+        tamano = len(self.Libro)
         for i in range(tamano):
-            a = self[i]
-            if len(a.Etiqueta()) == 1:
-                for j in range(len(self.Generos.keys())):
-                    if a.Etiqueta == self.Generos.keys()[j]:
-                        self.Generos[i].append(a)
-                        a.Genero = keys()[j]
-            else:
-                for i in a.Etiqueta:
-                    if a.Etiqueta == self.Generos.keys()[j]:
-                        self.Generos[i].append(a)
-                        a.Genero = keys()[j]
+            a = self.Libro[i]
+            ListaEti= a.getEtiqueta()
+            for Eti in ListaEti:
+                Etis = Eti
+                for t in range(len(self.Generos.keys())):
+                    if Etis == self.Generos.keys()[t]:
+                        nombre = a.getName
+                        self.Generos[Etis].append(nombre)
+                        a.setGenero(self.Generos.keys()[t])
 
     def ElemenetosPorGenero(self,Genero):
             print len(Generos[Genero].values())
