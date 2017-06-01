@@ -10,6 +10,8 @@ def trabaja(A):
                 nombre = A.values()[i][j]
                 Prueba.AgregarImagen(ruta,nombre)
 
+
+
 trabaja(A)
 print Prueba.size(),"final"
 print Prueba.show()
@@ -18,4 +20,4 @@ print Prueba.show()
 #Prueba.etiqueta()
 Prueba.AsignarGenero()
 print Prueba.show()
-print Prueba.Generos
+print Prueba.getGeneros()

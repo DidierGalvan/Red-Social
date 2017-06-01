@@ -16,7 +16,10 @@ class Libreria:
         for imagen in self.Libro:
             print imagen.show()
     def getGeneros(self):
-        return self.Generos
+        for key, value in self.Generos.iteritems():
+            for valor in value:
+                print key,"=>",valor.getName()
+
     def AgregarImagen(self,nombre,ruta):
         print self.size()
         self.Libro.append(Imagen(nombre,ruta))
@@ -36,7 +39,7 @@ class Libreria:
                 plt.imshow(img)
                 plt.show()
                 etiquetas= raw_input("Etiqueta: ")
-                etiqueta = etiquetas.split(',')
+                etiqueta = etiquetas.split(' ')
                 self.Libro[i].Etiqueta = etiqueta
             except AttributeError:
                 print "Eso no es imagen"

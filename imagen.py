@@ -13,6 +13,8 @@ class Imagen:
     def show(self):
         return str(self.Direccion)+"-"+str(self.NombreDEImagen)+"-"+str(self.Etiqueta)+"-"+str(self.Genero)
 
+    def __str__(self):
+        return self.NombreDEImagen
     def getEtiqueta(self):
         return str(self.Etiqueta)
 
