@@ -1,6 +1,7 @@
 from proyecto import *
 from libreria import *
 from imagen import *
+Fun = []
 Prueba = Libreria()
 def trabaja(A):
 #/home/eric/java/imagenes
@@ -17,7 +18,10 @@ print Prueba.size(),"final"
 print Prueba.show()
 Prueba.AsignarEtiqueta()
 print Prueba.show()
+
+#label=tk.Label(vp,image=img2).grid(column=0,row=0)
 #Prueba.etiqueta()
-Prueba.AsignarGenero()
-print Prueba.show()
-print Prueba.getGeneros()
+#Prueba.AsignarGenero()
+#print Prueba.show()
+#print Prueba.getGeneros()
+#print Prueba.To_Json()
