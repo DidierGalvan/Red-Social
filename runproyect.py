@@ -17,17 +17,8 @@ trabaja(A)
 #print Prueba.size(),"final"
 #print Prueba.show()
 Prueba.asignacion()
-print Prueba.ruta1[1]
-directorio=Prueba.ruta1[1]
-print directorio
-#for i in Prueba.ruta1:
 Prueba.AsignarEtiqueta()
 Prueba.ListaAsignacion()
+Prueba.AsignarGenero()
 print Prueba.show()
-
-#label=tk.Label(vp,image=img2).grid(column=0,row=0)
-#Prueba.etiqueta()
-#Prueba.AsignarGenero()
-#print Prueba.show()
-#print Prueba.getGeneros()
-#print Prueba.To_Json()
+Prueba.To_Json()

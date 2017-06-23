@@ -15,11 +15,14 @@ class Libreria:
     def __init__(self):
         self.Libro = []
         self.Generos = {'1':[],'2':[],'3':[],'4':[],'5':[],'6':[],'7':[],'8':[]}
-        self.Json = []
+        self.To_json={"imagenes":[]}
         self.ruta1 = []
         self.etequetas = []
+        self.Jsons=[]
     def size(self):
         return len(self.Libro)
+    def risize(self):
+        return len(self.Jsons)
     def show(self):
         for imagen in self.Libro:
             print imagen.show()
@@ -70,18 +73,18 @@ class Libreria:
                 img=cargar.resize((500,400),Image.ANTIALIAS)
                 img2=ImageTk.PhotoImage(img)
                 label=tk.Label(vp,image=img2).grid(column=0,row=0)
-                etiques.set(' ')
+                etiques.set('')
                 app.mainloop()
             except:
                 label=tk.Label(vp, text = 'Esto no es imagen').grid(column=0,row=0)
-                etiques.set(' ')
+                etiques.set('')
                 app.mainloop()
     def ListaAsignacion(self):
         for i in range(len(self.etequetas)):
             todo=self.etequetas[i]
-            uno = todos.split(' ')
+            uno = todo.split(' ')
             iman = self.Libro[i]
-            iman.Etiquetas = uno
+            iman.Etiqueta = uno
     def AsignarGenero(self):
         tamano = len(self.Libro)
         for i in range(tamano):
@@ -107,4 +110,17 @@ class Libreria:
             nombre = imagen.NombreDEImagen
             Eti = imagen.Etiqueta
             a = {"Nombre":nombre,"Direccion":path,"Etiquetas":Eti}
-            self.Json.append(a)
+            self.To_json["imagenes"].append(a)
+        print str(self.To_json).replace('\'','"')
+    def To_Libreria(self,Json):
+        self.Jsons = Json["imagenes"]
+        print self.Jsons
+        for i in range(self.risize()):
+            prim =self.Jsons[i]
+            nombre=prim["Nombre"]
+            direccion=prim["Direccion"]
+            etiquetasjson=prim["Etiquetas"]
+            self.Libro.append(Imagen(direccion,nombre))
+            imag=self.Libro[i]
+            imag.Etiqueta=etiquetasjson
+            
