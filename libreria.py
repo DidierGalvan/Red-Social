@@ -29,7 +29,7 @@ class Libreria:
                 print key,"=>",valor.getName()
 
     def AgregarImagen(self,nombre,ruta):
-        print self.size()
+        #print self.size()
         self.Libro.append(Imagen(nombre,ruta))
 
     def frame(self,NombreTk,side):
@@ -38,22 +38,13 @@ class Libreria:
         return w
 
     def Etiquis(self,obtencion):
-        etiqueta = obtencion.split(' ')
+        kn = obtencion.get()
+        print kn
+        etiqueta = kn.split(' ')
         self.etequetas.append(etiqueta)
         return True
 
-
-    def siguiente(self,num,vp):
-            try:
-                cargar=Image.open(self.ruta1[num])
-                img=cargar.resize((500,400),Image.ANTIALIAS)
-                img2=ImageTk.PhotoImage(img)
-                label=tk.Label(vp,image=img2).grid(column=0,row=0)
-            except:
-                label=tk.Label(vp, text = 'Esto no es imagen').grid(column=0,row=0)
-
     def asignacion(self):
-        print Etiquis('hola fg')
         for i in range(len(A.keys())):
                 ruta = A.keys()[i]
                 for j in range(len(A.values()[i])):
@@ -66,29 +57,31 @@ class Libreria:
         app.title("Etiquetar imagen")
         vp=self.frame(app,LEFT)
         vp.grid(column=0,row=0,padx=(10,10),pady=(1,1))
-        etiques = StringVar()
-        obtencion = etiques.get()
-
         etiqueta=Label(vp,text="Etiqueta:").grid(column=1,row=0)
+        etiques = StringVar()
         e1=Entry(vp, textvariable=etiques)
         e1.grid(column=2,row=0)
-        self.asignacion()
-        print Etiquis(str(obtencion))
         boton1=Button(vp,text="Siguente", command = app.quit ).grid(column=2,row=1)
-        boton2=Button(vp,text="Aceptar", command = self.Etiquet()).grid(column=1,row=1)
+        boton2=Button(vp,text="Aceptar", command = lambda s=self,valor =etiques:s.etequetas.append(valor.get())).grid(column=1,row=1)
+        boton3=Button(vp,text="Cerrar si no hay imagenes", command=app.destroy).grid(column=3,row=1)
         for i in range(len(self.ruta1)):
             try:
                 cargar=Image.open(self.ruta1[i])
                 img=cargar.resize((500,400),Image.ANTIALIAS)
                 img2=ImageTk.PhotoImage(img)
                 label=tk.Label(vp,image=img2).grid(column=0,row=0)
+                etiques.set(' ')
                 app.mainloop()
             except:
                 label=tk.Label(vp, text = 'Esto no es imagen').grid(column=0,row=0)
+                etiques.set(' ')
                 app.mainloop()
-
-
-
+    def ListaAsignacion(self):
+        for i in range(len(self.etequetas)):
+            todo=self.etequetas[i]
+            uno = todos.split(' ')
+            iman = self.Libro[i]
+            iman.Etiquetas = uno
     def AsignarGenero(self):
         tamano = len(self.Libro)
         for i in range(tamano):
