@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from proyecto import *
 from libreria import *
 from imagen import *
@@ -22,3 +23,4 @@ Prueba.ListaAsignacion()
 Prueba.AsignarGenero()
 print Prueba.show()
 Prueba.To_Json()
+Prueba.Escribe("enviar.txt")

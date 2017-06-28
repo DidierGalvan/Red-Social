@@ -1,4 +1,4 @@
-
+#-*- coding: utf-8 -*-
 Id = 0
 class Imagen:
 

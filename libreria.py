@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from imagen import *
 from proyecto import *
 import matplotlib.pyplot as plt
@@ -6,6 +7,7 @@ import numpy as np
 from PIL import Image
 from Tkinter import *
 import sys
+import json
 from PIL import Image
 from PIL import ImageTk
 import Tkinter as tk
@@ -19,6 +21,7 @@ class Libreria:
         self.ruta1 = []
         self.etequetas = []
         self.Jsons=[]
+        self.lol = None
     def size(self):
         return len(self.Libro)
     def risize(self):
@@ -111,16 +114,26 @@ class Libreria:
             Eti = imagen.Etiqueta
             a = {"Nombre":nombre,"Direccion":path,"Etiquetas":Eti}
             self.To_json["imagenes"].append(a)
-        print str(self.To_json).replace('\'','"')
-    def To_Libreria(self,Json):
-        self.Jsons = Json["imagenes"]
+            self.lol = str(self.To_json).replace('\'','"')
+
+        return self.lol
+
+    def Escribe(self,filename):
+        file = open(filename,"w")
+        file.write(self.lol)
+        file.close()
+        return True
+    def To_Libreria(self,filename):
+        file = open(filename,"r")
+        recivir1 = file.read()
+        recivir = json.loads(recivir1.decode("string_escape"))
+        self.Jsons = recivir["imagenes"]
         print self.Jsons
         for i in range(self.risize()):
             prim =self.Jsons[i]
-            nombre=prim["Nombre"]
+            nombre=prim["Nombre"].encode
             direccion=prim["Direccion"]
             etiquetasjson=prim["Etiquetas"]
             self.Libro.append(Imagen(direccion,nombre))
             imag=self.Libro[i]
             imag.Etiqueta=etiquetasjson
-            

@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+#-*-coding: utf-8-*-
+#-*-coding: cp1252-*-
+#-*-coding: Windows-1252-*-
+#-*-coding: IBM850-*-
 from os import walk
 
 A = {}
