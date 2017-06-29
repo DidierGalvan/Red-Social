@@ -15,13 +15,10 @@ sender.connect("tcp://localhost:5558")
 JsonRe = ""
 while True:
     s = receiver.recv()
-    print s
     JsonRe += s
     file = open("recivir.txt","w")
     file.write(JsonRe)
     file.close()
-
     time.sleep(int (10)*0.001)
-
     sender.send("")
-    
+    print "Presiona Ctrl+C"

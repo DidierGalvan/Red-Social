@@ -35,7 +35,6 @@ class Libreria:
                 print key,"=>",valor.getName()
 
     def AgregarImagen(self,nombre,ruta):
-        #print self.size()
         self.Libro.append(Imagen(nombre,ruta))
 
     def frame(self,NombreTk,side):
@@ -115,7 +114,6 @@ class Libreria:
             a = {"Nombre":nombre,"Direccion":path,"Etiquetas":Eti}
             self.To_json["imagenes"].append(a)
             self.lol = str(self.To_json).replace('\'','"')
-
         return self.lol
 
     def Escribe(self,filename):
@@ -128,7 +126,6 @@ class Libreria:
         recivir1 = file.read()
         recivir = json.loads(recivir1.decode("string_escape"))
         self.Jsons = recivir["imagenes"]
-        print self.Jsons
         for i in range(self.risize()):
             prim =self.Jsons[i]
             nombre=prim["Nombre"].encode
